@@ -34,7 +34,9 @@ namespace CommandInterceptor.Data
 
             var authors = new Author[]
             {
-            new Author{ Name = "Muhammad" },
+            new Author{ Name = "Muhammad", CreatorName = "Samim" },
+            new Author{ Name = "Rabbi", CreatorName = "Towhid" },
+            new Author{ Name = "Fazle", CreatorName = "Towhid" },
             new Author{ Name = "Dalim" }
 
             };

@@ -1,8 +1,32 @@
-﻿@{
+﻿@using CommandInterceptor.Models 
+@{
     ViewData["Title"] = "Home Page";
+    List<Author> authors = ViewBag.Authors;
 }
+
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<table class="table table-bordered table-active table-dark">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Creator</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var author in authors)
+        {
+            <tr>
+                <td>@author.Id</td>
+                <td>@author.Name</td>
+                <td>@author.CreatorName</td>
+            </tr>
+        }
+    </tbody>
+</table>

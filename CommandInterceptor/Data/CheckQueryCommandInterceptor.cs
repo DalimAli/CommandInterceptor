@@ -16,6 +16,11 @@ namespace CommandInterceptor.Data
         private void ManipulateCommand(DbCommand command)
         {
             // do something 
+            if(command.CommandType == System.Data.CommandType.Text && 
+                command.CommandText.StartsWith("select", StringComparison.CurrentCultureIgnoreCase))
+            {
+                command.CommandText = string.Concat(command.CommandText, " WHERE CreatorName IS NOT NULL");
+            }
         }
 
     }
