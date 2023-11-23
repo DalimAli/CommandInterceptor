@@ -13,6 +13,21 @@ namespace CommandInterceptor.Data
             return base.ReaderExecuting(command, eventData, result);
         }
 
+        public override void CommandCanceled(DbCommand command, CommandEndEventData eventData)
+        {
+            base.CommandCanceled(command, eventData);
+        }
+
+        public override ValueTask<InterceptionResult<DbDataReader>> ReaderExecutingAsync(DbCommand command, CommandEventData eventData, InterceptionResult<DbDataReader> result, CancellationToken cancellationToken = default)
+        {
+            return base.ReaderExecutingAsync(command, eventData, result, cancellationToken);
+        }
+
+        public override ValueTask<InterceptionResult<int>> NonQueryExecutingAsync(DbCommand command, CommandEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
+        {
+            return base.NonQueryExecutingAsync(command, eventData, result, cancellationToken);
+        }
+
         private void ManipulateCommand(DbCommand command)
         {
             // do something 
